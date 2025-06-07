@@ -8,7 +8,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen grid-bg flex flex-col items-center px-4 text-center pt-16 pb-8">
+    <div className="min-h-screen grid-bg flex flex-col items-center px-4 text-center pt-12 pb-8">
       {/* Top Title */}
       <h1 className="text-[#E37303] text-6xl font-bold mb-8">Orange Place</h1>
 
@@ -35,10 +35,10 @@ const Home = () => {
 
       {/* Footer */}
       <a
-        href="https://github.com/hemanthk04/orange-place" // <-- replace with actual link
+        href="https://github.com/hemanthk04/Orange-Place" // <-- replace with actual link
         target="_blank"
         rel="noopener noreferrer"
-        className="bg-[#222222] text-white py-2 px-4 rounded-md font-medium hover:scale-105 transition mt-4 mb-2 inline-block"
+        className="bg-[#222222] text-white py-2 px-4 rounded-md font-medium hover:scale-105 transition mt-4 mb-0 inline-block"
       >
         Check GitHub Repo ↗
       </a>
