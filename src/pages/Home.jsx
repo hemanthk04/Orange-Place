@@ -23,7 +23,7 @@ const Home = () => {
           <GameCard
             icon={cardsIcon}
             label="Memory Cards"
-            onClick={() => navigate("/memory")}
+            onClick={() => navigate("/memorycards")}
           />
           <GameCard
             icon={faceIcon}
