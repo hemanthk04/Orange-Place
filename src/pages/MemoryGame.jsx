@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { HouseLine } from "@phosphor-icons/react";
 import { Link } from "react-router-dom";
 
+// Game icons
 import cherry from "../assets/icons/cherry.png";
 import chestnut from "../assets/icons/chestnut.png";
 import clove from "../assets/icons/clove.png";
@@ -16,6 +17,10 @@ import orange from "../assets/icons/orange.png";
 import pumpkin from "../assets/icons/pumpkin.png";
 import strawberry from "../assets/icons/strawberry.png";
 import sunflower from "../assets/icons/sunflower.png";
+
+// Custom Result Icons
+import winIcon from "../assets/youwoncard.png";
+import loseIcon from "../assets/gameovercard.png";
 
 const icons = [
   cherry,
@@ -45,7 +50,7 @@ const MemoryGame = () => {
   const [matched, setMatched] = useState([]);
   const [score, setScore] = useState(0);
 
-  const [timeLeft, setTimeLeft] = useState(150);
+  const [timeLeft, setTimeLeft] = useState(90);
   const [timerStarted, setTimerStarted] = useState(false);
   const [gameOver, setGameOver] = useState(false);
   const [win, setWin] = useState(false);
@@ -103,7 +108,7 @@ const MemoryGame = () => {
 
   return (
     <div className="min-h-screen grid-bg bg-repeat flex flex-col items-center justify-center relative">
-      {/* Header Row */}
+      {/* Header */}
       <div className="w-full flex justify-between items-center px-12 py-6 absolute top-4">
         <Link to="/">
           <div className="bg-[#E37303] rounded-full p-3 cursor-pointer shadow-lg">
@@ -111,7 +116,6 @@ const MemoryGame = () => {
           </div>
         </Link>
 
-        {/* Absolute Center Title */}
         <h1 className="absolute left-1/2 transform -translate-x-1/2 text-5xl font-bold">
           Memory Cards
         </h1>
@@ -130,7 +134,7 @@ const MemoryGame = () => {
         </div>
       </div>
 
-      {/* Game Grid - Centered */}
+      {/* Game Grid */}
       <div className="flex flex-1 items-center justify-center w-full mt-20">
         <div className="grid grid-cols-6 gap-4">
           {cards.map((card) => (
@@ -152,15 +156,45 @@ const MemoryGame = () => {
           animate={{ scale: 1 }}
           className="fixed inset-0 bg-black/70 flex items-center justify-center z-50"
         >
-          <div className="bg-white p-8 rounded-lg text-center">
-            <h2 className="text-3xl font-bold mb-4">
-              {win ? "🎉 You Won!" : "⏰ Time's Up! You Lost!"}
+          <div className="relative bg-white rounded-[32px] px-10 py-8 text-center w-[320px] shadow-xl">
+            {/* Close Button */}
+            <button className="absolute top-4 right-4" onClick={restart}>
+              <div className="bg-gray-200 rounded-full p-1 hover:bg-gray-300 transition">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 text-gray-700"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </div>
+            </button>
+
+            {/* 3D Image */}
+            <img
+              src={win ? winIcon : loseIcon}
+              alt="Result Icon"
+              className="w-20 h-20 mx-auto mb-4"
+            />
+
+            {/* Title */}
+            <h2 className="text-2xl font-bold mb-6">
+              {win ? "You Won !" : "Game Over !"}
             </h2>
+
+            {/* Play Again */}
             <button
               onClick={restart}
-              className="mt-4 px-4 py-2 bg-orange-500 text-white rounded-md"
+              className="bg-[#E37303] hover:bg-orange-600 transition text-white font-semibold py-2 px-6 rounded-full"
             >
-              Play Again
+              Play again
             </button>
           </div>
         </motion.div>
