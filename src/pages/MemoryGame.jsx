@@ -109,7 +109,7 @@ const MemoryGame = () => {
   return (
     <div className="min-h-screen grid-bg bg-repeat flex flex-col items-center justify-center relative">
       {/* Header */}
-      <div className="w-full flex justify-between items-center px-12 py-6 absolute top-4">
+      <div className="w-full flex justify-between items-center px-12 py-2 absolute top-4">
         <Link to="/">
           <div className="bg-[#E37303] rounded-full p-3 cursor-pointer shadow-lg">
             <HouseLine size={28} color="white" />
