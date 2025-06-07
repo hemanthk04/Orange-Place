@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const MemoryCard = ({ icon, isFlipped, isMatched, onClick }) => {
   return (
     <div
-      className={`w-[80px] h-[80px] sm:w-[120px] sm:h-[120px] relative cursor-pointer ${
+      className={`w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] relative cursor-pointer ${
         isMatched ? "opacity-60 pointer-events-none" : ""
       }`}
       onClick={onClick}
